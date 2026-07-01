@@ -6,8 +6,8 @@ This repo contains the Python Code that **must** be installed on the Raspberry P
 
 The BLEControlsPi App allows you to remotely control the Raspberry Pi from your iPhone/iPad via bluetooth.
 
-With BLEControlsPi app,  you to create the controls, such as buttons, sliders, steppers, pickers, and text input on your iPhone/iPad.
-When you manipulated the controls their value is sent to the Raspberry Pi in real time using bluetooth (BLE) - no wifi connection needed.
+With BLEControlsPi app,  you create the controls, such as buttons, sliders, steppers, pickers, and text input on your iPhone/iPad.
+When you manipulate the controls, their value is sent to the Raspberry Pi in real time using bluetooth (BLE) - no wifi connection needed.
 
 You can also build a dashboard, with display controls such as Gauges and text displays. The Raspberry Pi updates the iPhone/iPad in real time as well.
 
@@ -24,7 +24,7 @@ There is a [How to use BLEControlsPi Video](https://www.youtube.com/watch?v=8y3t
 
 This code is provided AS IS (no warranty - see LICENSE).  It is licensed under the **MIT License** which is provided in this repo. 
 
-## How to Install The Python Code on the RAspberry Pi:
+## How to Install The Python Code on the Raspberry Pi:
 
 An automated bash script is provided that downloads the python code, and installs the necessary dependencies on the Raspberry Pi.
 
