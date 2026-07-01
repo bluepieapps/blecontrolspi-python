@@ -2,19 +2,29 @@
 
 This repo contains the Python Code that **must** be installed on the Raspberry Pi or compatible linux box in order to run the BLEControlsPi App on the IOS App store (awaiting approval).
 
+## The BLEControlsPi App
+
 The BLEControlsPi App allows you to remotely control the Raspberry Pi from your iPhone/iPad via bluetooth.
 
-In BLEControlsPi app,  you to create the controls you want, such as buttons, sliders, steppers, pickers, and text input on your iPhone/iPad and to send the value of these controls to the Raspberry Pi in real time using bluetooth (BLE) - no wifi connection needed.
+With BLEControlsPi app,  you to create the controls, such as buttons, sliders, steppers, pickers, and text input on your iPhone/iPad.
+When you manipulated the controls their value is sent to the Raspberry Pi in real time using bluetooth (BLE) - no wifi connection needed.
 
-There are also display controls such as Gauges and text displays - which allows the Raspberry Pi to update the iPhone/iPad in real time as well.
+You can also build a dashboard, with display controls such as Gauges and text displays. The Raspberry Pi updates the iPhone/iPad in real time as well.
 
-On the Raspberry Pi, after installing the code you add and register handlers for each control your define in the BLEControlsPi app (class ActionController, in the ActionController.py file). These handlers dictate what happens on the Raspberry Pi when you use the controls on the iPhone/iPad
+On the Raspberry Pi, after installing the Python Code provided here, you create and register handlers for each control your defined in your BLEControlsPi app. These handlers dictate what happens on the Raspberry Pi when you use the controls on the iPhone/iPad
 
-## License
+### Documentation
 
-This code is provided AS IS (see LICENSE).  It is license under the MIT License which is provided in the repo. 
+App usage and information on Python Code Handlers can be found on 
+[bluepieapps.com](https://bluepieapps.com/Control-Pi-over-bluetooth/)
 
-## How to Install
+There is a [How to use BLEControlsPi Video](https://www.youtube.com/watch?v=8y3t2luLw3k) on You Tube.
+
+## License - no Warranty
+
+This code is provided AS IS (no warranty - see LICENSE).  It is licensed under the **MIT License** which is provided in this repo. 
+
+## How to Install The Python Code on the RAspberry Pi:
 
 An automated bash script is provided that downloads the python code, and installs the necessary dependencies on the Raspberry Pi.
 
@@ -32,7 +42,7 @@ Then, run the installer script with the curl command below, to set up btwifiset 
 curl -fL https://github.com/bluepieapps/blecontrolspi-python/releases/download/v1.1.0/bpablecontrolsinstall-v1.1.0.sh | bash
 ```
 
-## Installer will ask you:
+### Installer will ask you:
 
 Where you want to install the python code: the default is `/usr/local/bluepieapps`
 >it is recommended to just accept the default
@@ -49,7 +59,7 @@ This is to prevent a third party from downloading the BLEControlsPi app and cont
 Enable the service to start on boot:
 > if you say yes to this, the service that runs the python code will start automatically after the Raspberry Pi boots up (see next section)
 
-## How to run the code:
+## How to run the code after installation:
 
 The installer creates a service named `bpa-controls-channel.service` located at /etc/systemd/system/
 
@@ -77,7 +87,7 @@ systemctl status bpa-bleconnectrouter.service
 
 >A second service is created which runs the BLE related code (under sub directory `libs`). You do not need to start this because the main service `bpa-controls-channel` starts it automatically.  This is where the heavy lifting occurs (including logging - see next section).
 
-### Logging
+## Logging
 
 By default, the systems logs many event in DEBUG level mode. You can change this in the code (to: INFO, CRITICAL) to get lighter logs.
 The logs are store in syslog.
@@ -92,7 +102,4 @@ journalctl SYSLOG_IDENTIFIER=bpa-logger -n 200 --no-pager
 ```
 
 
-### Documentation
 
-App usage and information on Python Code Handlers can be found on 
-[bluepieapps.com](https://bluepieapps.com)
